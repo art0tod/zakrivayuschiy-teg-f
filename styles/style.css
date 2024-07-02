@@ -17,4 +17,8 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-color: var(--bg-color);
+  background-image: var(--bg-image-grad);
+  background-size: cover;
+  color: var(--accent-color);
 }
