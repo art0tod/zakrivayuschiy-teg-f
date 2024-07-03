@@ -6,6 +6,9 @@
 */
 
 :root.theme-dark {
+  --main-font-weight: 465;
+  --card-title-font-weight: 785;
+
   --bg-color: #000;
   --accent-color: #00cc14;
   --bg-image-grad: repeating-linear-gradient(
@@ -19,6 +22,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --main-font-weight: 465;
+    --card-title-font-weight: 785;
+
     --bg-color: #000;
     --accent-color: #00cc14;
     --bg-image-grad: repeating-linear-gradient(
@@ -32,6 +38,9 @@
 }
 
 :root.theme-light {
+  --main-font-weight: 400;
+  --card-title-font-weight: 700;
+
   --bg-color: #fff;
   --accent-color: #000;
   --bg-image-grad: repeating-linear-gradient(
@@ -49,6 +58,9 @@
 
 @media (prefers-color-scheme: light) {
   :root {
+    --main-font-weight: 400;
+    --card-title-font-weight: 700;
+
     --bg-color: #fff;
     --accent-color: #000;
     --bg-image-grad: repeating-linear-gradient(
