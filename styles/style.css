@@ -17,13 +17,13 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  background-color: var(--bg-color);
+  background-color: var(--bg-clr);
   background-image: var(--bg-image-grad);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  color: var(--accent-color);
+  color: var(--accent-clr);
   font-family: var(--main-font), sans-serif;
   font-variation-settings: 'wght' var(--main-font-weight, 400);
   display: flex;
@@ -36,8 +36,8 @@
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  border: 2px solid var(--accent-color, #000);
-  background-color: var(--bg-color);
+  border: 2px solid var(--accent-clr, #000);
+  background-color: var(--bg-clr);
   padding: 120px 0 25px;
   margin: 100px 0;
   font-family: var(--accent-font), serif;
@@ -91,14 +91,42 @@
 }
 
 .card {
-  border: 2px solid var(--accent-color);
-  background-color: var(--bg-color);
+  border: 2px solid var(--accent-clr);
+  background-color: var(--bg-clr);
 }
 
 .card__title {
   font-size: 18px;
   font-variation-settings: 'wght' var(--card-title-font-weight, 400);
   padding: 5px 10px;
+}
+
+.card__image-wrapper {
+  position: relative;
+}
+
+.card__image-wrapper::after {
+  content: '</html>';
+  font-family: var(--accent-font), serif;
+  text-transform: uppercase;
+  position: absolute;
+  font-size: 14px;
+  top: 25px;
+  right: 25px;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  text-shadow:
+    1px 0 var(--label-stroke-clr),
+    -1px 0 var(--label-stroke-clr),
+    0 1px var(--label-stroke-clr),
+    0 -1px var(--label-stroke-clr);
+}
+
+@supports (-webkit-text-stroke: 1px var(--label-stroke-clr)) {
+  .card__image-wrapper::after {
+    -webkit-text-stroke: 1px var(--label-stroke-clr);
+    text-shadow: none;
+  }
 }
 
 .card__image {
@@ -133,22 +161,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-color);
-  border: 2px solid var(--accent-color);
+  background-color: var(--bg-clr);
+  border: 2px solid var(--accent-clr);
   height: 38px;
   padding: 0 35px;
 }
 
 .button__text {
-  color: var(--accent-color, #000);
+  color: var(--accent-clr, #000);
   font-family: 'Press Start 2P', sans-serif;
   font-size: 14px;
   font-weight: var(--main-font-weight);
 }
 
 .save__button {
-  color: var(--accent-color);
-  background-color: var(--bg-color);
+  color: var(--accent-clr);
+  background-color: var(--bg-clr);
   border: 2px solid currentColor;
   margin: 0 auto;
   display: flex;
@@ -176,5 +204,9 @@
 
   .title {
     padding-top: 0;
+  }
+
+  .card__image-wrapper::after {
+    right: 13px;
   }
 }

@@ -9,8 +9,9 @@
   --main-font-weight: 465;
   --card-title-font-weight: 785;
 
-  --bg-color: #000;
-  --accent-color: #00cc14;
+  --bg-clr: #000;
+  --accent-clr: #00cc14;
+  --label-stroke-clr: var(--bg-clr);
   --bg-image-grad: repeating-linear-gradient(
       to right,
       #000 0 2px,
@@ -25,8 +26,9 @@
     --main-font-weight: 465;
     --card-title-font-weight: 785;
 
-    --bg-color: #000;
-    --accent-color: #00cc14;
+    --bg-clr: #000;
+    --accent-clr: #00cc14;
+    --label-stroke-clr: var(--bg-clr);
     --bg-image-grad: repeating-linear-gradient(
         to right,
         #000 0 2px,
@@ -41,8 +43,9 @@
   --main-font-weight: 400;
   --card-title-font-weight: 700;
 
-  --bg-color: #fff;
-  --accent-color: #000;
+  --bg-clr: #fff;
+  --accent-clr: #000;
+  --label-stroke-clr: var(--bg-clr);
   --bg-image-grad: repeating-linear-gradient(
       to right,
       #d3d3d3 0 2px,
@@ -61,8 +64,9 @@
     --main-font-weight: 400;
     --card-title-font-weight: 700;
 
-    --bg-color: #fff;
-    --accent-color: #000;
+    --bg-clr: #fff;
+    --accent-clr: #000;
+    --label-stroke-clr: var(--bg-clr);
     --bg-image-grad: repeating-linear-gradient(
         to right,
         #d3d3d3 0 2px,
