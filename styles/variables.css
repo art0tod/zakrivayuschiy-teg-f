@@ -1,7 +1,10 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
+  --section-width: min(700px, 100%);
   --main-font: Inter;
   --accent-font: 'Press Start 2P';
+  --main-font-weight: 400;
+  --card-title-font-weight: 700;
 
   --bg-color: #fff;
   --accent-color: #000;
