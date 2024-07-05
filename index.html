@@ -589,6 +589,24 @@
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
+      <dialog class="dialog" id="dialog-id">
+        <div class="dialog__window">
+          <div class="dialog__content">
+            <svg class="floppy" viewBox="0 0 23 23">
+              <use href="./svg/floppy.svg#floppy" />
+            </svg>
+            <p class="dialog__text">Вставьте дискету,&nbsp;чтобы продолжить</p>
+          </div>
+          <button
+            class="button dialog__button"
+            onclick="window['dialog-id'].close()"
+            type="button"
+            aria-controls="dialog-id"
+          >
+            <span class="button__text">Ok</span>
+          </button>
+        </div>
+      </dialog>
     </main>
     <script src="./scripts/like.js"></script>
   </body>

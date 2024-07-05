@@ -214,6 +214,7 @@
 
 .button__text {
   color: var(--button-clr);
+  font-size: 14px;
   font-family: var(--accent-font), serif;
   mix-blend-mode: difference;
 }
@@ -240,6 +241,9 @@
 }
 
 .button {
+  background-color: var(--bg-clr);
+  color: var(--accent-clr);
+  border: 2px solid currentColor;
   position: relative;
   transition: box-shadow 0.3s ease;
 }
@@ -345,6 +349,53 @@
   transition: fill 0.3s linear 0.06s;
 }
 
+.dialog::backdrop {
+  opacity: 0.75;
+  background-color: #000;
+}
+
+.dialog {
+  padding: 0;
+}
+
+.dialog__window {
+  background-color: var(--bg-clr);
+  border: 2px solid currentColor;
+  color: var(--accent-clr);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dialog__content {
+  display: grid;
+  grid-template-columns: 40px auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog .floppy {
+  width: 39px;
+}
+
+.dialog__text {
+  font-family: var(--accent-font), sans-serif;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  font-size: 14px;
+  width: min-content;
+}
+
+.dialog__button {
+  width: 100%;
+  padding-block: 9px;
+}
+
+.dialog__button .button__text {
+  text-transform: uppercase;
+}
+
 @media (width <= 375px) {
   :root {
     --section-width: 100%;
@@ -360,5 +411,9 @@
 
   .card__image-wrapper::after {
     right: 13px;
+  }
+
+  .dialog__window {
+    padding-inline: 40px;
   }
 }
