@@ -227,7 +227,6 @@
   display: flex;
   align-items: center;
   max-width: max-content;
-  display: inline-flex;
   padding: 14px 18px;
   gap: 8px;
 }
