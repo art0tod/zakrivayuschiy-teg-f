@@ -9,6 +9,9 @@
   --bg-clr: #fff;
   --accent-clr: #000;
   --label-stroke-clr: var(--bg-clr);
+  --button-clr: #fff;
+  --heart-contour: var(--accent-clr);
+  --heart-fill: #f00;
   --bg-image-grad: repeating-linear-gradient(
       to right,
       #d3d3d3 0 2px,

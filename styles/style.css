@@ -178,12 +178,28 @@
 .card__buttons-wrapper {
   display: flex;
   justify-content: end;
+  gap: 12px;
   padding: 0 25px 20px;
 }
 
 .card__icon-button {
   background: none;
   border: none;
+  padding: 0;
+  outline: 2px solid transparent;
+  transition: outline 0.3s ease;
+}
+
+.card__icon-button:hover {
+  cursor: pointer;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-clr);
 }
 
 .card__like-button {
@@ -193,14 +209,13 @@
   background-color: var(--bg-clr);
   border: 2px solid var(--accent-clr);
   height: 38px;
-  padding: 0 35px;
+  padding: 0 31px;
 }
 
 .button__text {
-  color: var(--accent-clr, #000);
-  font-family: 'Press Start 2P', sans-serif;
-  font-size: 14px;
-  font-weight: var(--main-font-weight);
+  color: var(--button-clr);
+  font-family: var(--accent-font), serif;
+  mix-blend-mode: difference;
 }
 
 .save__button {
@@ -219,7 +234,44 @@
 .floppy {
   width: 29px;
   aspect-ratio: 1/1;
-  fill: currentColor;
+  fill: var(--button-clr);
+  color: var(--button-clr);
+  mix-blend-mode: difference;
+}
+
+.button {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  scale: 0 1;
+  transform-origin: left;
+  background-color: var(--accent-clr);
+  transition: scale 0.5s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:hover::before {
+  scale: 1;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--accent-clr);
+}
+
+.sparks {
+  opacity: 0;
 }
 
 @media (width <= 375px) {

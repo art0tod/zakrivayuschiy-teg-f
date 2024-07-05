@@ -12,6 +12,8 @@
   --bg-clr: #000;
   --accent-clr: #00cc14;
   --label-stroke-clr: var(--bg-clr);
+  --button-clr: #00cc14;
+  --heart-contour: var(--accent-clr);
   --bg-image-grad: repeating-linear-gradient(
       to right,
       #000 0 2px,
@@ -29,6 +31,8 @@
     --bg-clr: #000;
     --accent-clr: #00cc14;
     --label-stroke-clr: var(--bg-clr);
+    --button-clr: #00cc14;
+    --heart-contour: var(--accent-clr);
     --bg-image-grad: repeating-linear-gradient(
         to right,
         #000 0 2px,
@@ -46,6 +50,8 @@
   --bg-clr: #fff;
   --accent-clr: #000;
   --label-stroke-clr: var(--bg-clr);
+  --button-clr: #fff;
+  --heart-contour: var(--accent-clr);
   --bg-image-grad: repeating-linear-gradient(
       to right,
       #d3d3d3 0 2px,
@@ -67,6 +73,8 @@
     --bg-clr: #fff;
     --accent-clr: #000;
     --label-stroke-clr: var(--bg-clr);
+    --button-clr: #fff;
+    --heart-contour: var(--accent-clr);
     --bg-image-grad: repeating-linear-gradient(
         to right,
         #d3d3d3 0 2px,
