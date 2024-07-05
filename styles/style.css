@@ -161,7 +161,7 @@
 .card__image {
   width: 100%;
   object-fit: cover;
-  object-position: right;
+  object-position: center;
   aspect-ratio: 1/1;
 }
 
@@ -416,4 +416,43 @@
   .dialog__window {
     padding-inline: 40px;
   }
+}
+
+/*--------*/
+/* filters */
+/*--------*/
+
+/* 1. Ностальгический сепия */
+.nostalgic-sepia {
+  filter: sepia(80%) contrast(110%) brightness(90%);
+}
+
+/* 2. Неоновое сияние */
+.neon-glow {
+  filter: brightness(150%) contrast(120%) saturate(200%) hue-rotate(45deg);
+}
+
+/* 3. Акварельный эффект */
+.watercolor {
+  filter: blur(1px) saturate(150%) contrast(110%);
+}
+
+/* 4. Мистический туман */
+.mystic-fog {
+  filter: brightness(90%) contrast(110%) grayscale(50%) hue-rotate(180deg);
+}
+
+/* 5. Винтажная пленка */
+.vintage-film {
+  filter: sepia(30%) contrast(120%) saturate(80%) brightness(105%);
+}
+
+/* 6. Космическое сияние */
+.cosmic-glow {
+  filter: brightness(120%) contrast(110%) saturate(150%) hue-rotate(30deg);
+}
+
+/* 7. Драматический noir */
+.dramatic-noir {
+  filter: grayscale(100%) contrast(150%) brightness(80%);
 }
