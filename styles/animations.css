@@ -1,4 +1,4 @@
-@keyframes arrow-horizontal-movement {
+@keyframes horizontalSlide {
   from {
     left: -13px;
   }
@@ -7,7 +7,7 @@
   }
 }
 
-@keyframes heart-scale {
+@keyframes pulsate {
   from {
     transform: scale(1);
   }
@@ -21,11 +21,97 @@
   }
 }
 
-@keyframes heart-sparks {
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
+}
+
+/* animation */
+
+.theme-menu__button:disabled::before {
+  position: absolute;
+  content: '▶';
+  left: -13px;
+  animation: horizontalSlide 0.5s ease-in-out infinite alternate;
+}
+
+.like-icon.is-liked .heart {
+  animation: pulsate 0.3s ease-in 0.1s 1 alternate;
+}
+
+.like-icon.is-liked .sparks {
+  animation: fadeIn 0.3s ease-in 0.3s 1 alternate;
+}
+
+/* transition animation */
+
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  height: 2px;
+  transform-origin: left;
+  transform: scaleX(0);
+  background-color: var(--accent-clr);
+  transition: 0.3s transform ease;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  scale: 0 1;
+  transform-origin: left;
+  background-color: var(--accent-clr);
+  transition: scale 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  scale: 1 1;
+}
+
+.like-icon:hover .core {
+  fill: var(--accent-clr, #000);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--accent-clr, #000);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--heart-fill, #f00);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--accent-clr, #000);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-fill, #f00);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-fill, #f00);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-fill, #f00);
+  transition: fill 0.3s linear 0.06s;
 }

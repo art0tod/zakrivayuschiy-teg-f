@@ -17,14 +17,27 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  background-color: var(--bg-clr);
-  background-image: var(--bg-image-grad);
+  background-color: var(--bg-clr, #fff);
+  background-image: var(
+    --bg-image-grad,
+    repeating-linear-gradient(
+      to right,
+      #d3d3d3 0 2px,
+      rgba(0, 0, 0, 0) 2px 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #d3d3d3 0 2px,
+      rgba(0, 0, 0, 0) 2px 4px
+    ),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a)
+  );
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  color: var(--accent-clr);
-  font-family: var(--main-font), sans-serif;
+  color: var(--accent-clr, #000);
+  font-family: var(--main-font, Inter), sans-serif;
   font-variation-settings: 'wght' var(--main-font-weight, 400);
   display: flex;
   flex-direction: column;
@@ -37,12 +50,12 @@
   gap: 20px;
   align-items: center;
   border: 2px solid var(--accent-clr, #000);
-  background-color: var(--bg-clr);
-  padding: 120px 0 25px;
+  background-color: var(--bg-clr, #fff);
+  padding: 118px 0 23px;
   margin: 100px 0;
-  font-family: var(--accent-font), serif;
+  font-family: var(--accent-font, 'Press Start 2P'), serif;
   text-transform: uppercase;
-  width: var(--section-width);
+  width: var(--section-width, min(700px, 100%));
 }
 
 .title {
@@ -57,12 +70,18 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-
+  padding-top: 4px;
+  padding-left: 18px;
   gap: 12px;
+}
+
+.theme-menu__item {
+  padding: 0;
 }
 
 .theme-menu__button {
   font-size: 14px;
+  height: 1em;
   background: none;
   border: none;
   text-transform: inherit;
@@ -80,37 +99,12 @@
   cursor: pointer;
 }
 
-.theme-menu__button:focus {
-  outline: none;
-}
-
-.theme-menu__button::after {
-  content: '';
-  display: block;
-  height: 2px;
-  transform-origin: left;
-  transform: scaleX(0);
-  background-color: var(--accent-clr);
-  transition: 0.3s transform ease;
-}
-
-.theme-menu__button:focus-visible::after {
-  transform: scaleX(1);
-}
-
-.theme-menu__button:disabled::before {
-  position: absolute;
-  content: '▶';
-  left: -13px;
-  animation: arrow-horizontal-movement 0.5s ease-in-out infinite alternate;
-}
-
 .content {
   display: flex;
   flex-direction: column;
-  gap: 54px;
+  gap: 50px;
   padding-block-end: 100px;
-  width: var(--section-width);
+  width: var(--section-width, min(700px, 100%));
 }
 
 .content__cards-list {
@@ -120,8 +114,8 @@
 }
 
 .card {
-  border: 2px solid var(--accent-clr);
-  background-color: var(--bg-clr);
+  border: 2px solid var(--accent-clr, #000);
+  background-color: var(--bg-clr, #fff);
 }
 
 .card__title {
@@ -131,12 +125,23 @@
 }
 
 .card__image-wrapper {
+  margin: 0;
   position: relative;
+  border: 2px solid var(--accent-clr, #000);
+  border-inline: none;
 }
 
-.card__image-wrapper::after {
-  content: '</html>';
-  font-family: var(--accent-font), serif;
+.card__image {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.card__image-label {
+  font-family: var(--accent-font, 'Press Start 2P'), serif;
   text-transform: uppercase;
   position: absolute;
   font-size: 14px;
@@ -144,25 +149,19 @@
   right: 25px;
   mix-blend-mode: hard-light;
   opacity: 0.5;
+  z-index: 1;
   text-shadow:
-    1px 0 var(--label-stroke-clr),
-    -1px 0 var(--label-stroke-clr),
-    0 1px var(--label-stroke-clr),
-    0 -1px var(--label-stroke-clr);
+    1px 0 var(--label-stroke-clr, #fff),
+    -1px 0 var(--label-stroke-clr, #fff),
+    0 1px var(--label-stroke-clr, #fff),
+    0 -1px var(--label-stroke-clr, #fff);
 }
 
-@supports (-webkit-text-stroke: 1px var(--label-stroke-clr)) {
-  .card__image-wrapper::after {
-    -webkit-text-stroke: 1px var(--label-stroke-clr);
+@supports (-webkit-text-stroke: 1px var(--label-stroke-clr, #fff)) {
+  .card__image-label::after {
+    -webkit-text-stroke: 1px var(--label-stroke-clr, #fff);
     text-shadow: none;
   }
-}
-
-.card__image {
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-  aspect-ratio: 1/1;
 }
 
 .card__text {
@@ -178,14 +177,16 @@
 .card__buttons-wrapper {
   display: flex;
   justify-content: end;
-  gap: 12px;
-  padding: 0 25px 20px;
+  gap: 6px;
+  padding: 0 25px 24px;
 }
 
 .card__icon-button {
   background: none;
   border: none;
   padding: 0;
+  height: 38px;
+  align-items: center;
   outline: 2px solid transparent;
   transition: outline 0.3s ease;
 }
@@ -199,70 +200,52 @@
 }
 
 .card__icon-button:focus-visible {
-  outline: 2px solid var(--accent-clr);
+  outline: 2px solid var(--accent-clr, #000);
 }
 
 .card__like-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-clr);
-  border: 2px solid var(--accent-clr);
-  height: 38px;
+  width: 130px;
   padding: 0 31px;
 }
 
 .button__text {
-  color: var(--button-clr);
+  color: var(--button-clr, #fff);
   font-size: 14px;
-  font-family: var(--accent-font), serif;
+  font-family: var(--accent-font, #000), serif;
   mix-blend-mode: difference;
+  font-weight: 0.9em;
 }
 
 .save__button {
-  color: var(--accent-clr);
-  background-color: var(--bg-clr);
-  border: 2px solid currentColor;
   margin: 0 auto;
   display: flex;
   align-items: center;
   max-width: max-content;
-  padding: 14px 18px;
+  padding: 15px 18px 14px;
   gap: 8px;
 }
 
 .floppy {
-  width: 29px;
+  width: 23px;
   aspect-ratio: 1/1;
-  fill: var(--button-clr);
-  color: var(--button-clr);
+  fill: var(--button-clr, #fff);
+  color: var(--button-clr, #fff);
   mix-blend-mode: difference;
 }
 
 .button {
-  background-color: var(--bg-clr);
-  color: var(--accent-clr);
+  background-color: var(--bg-clr, #fff);
+  color: var(--accent-clr, #000);
   border: 2px solid currentColor;
   position: relative;
   transition: box-shadow 0.3s ease;
 }
 
-.button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  scale: 0 1;
-  transform-origin: left;
-  background-color: var(--accent-clr);
-  transition: scale 0.5s ease-in-out;
-}
-
 .button:hover {
   cursor: pointer;
-}
-
-.button:hover::before {
-  scale: 1 1;
 }
 
 .button:focus {
@@ -270,7 +253,7 @@
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--accent-clr);
+  box-shadow: 2px 2px 0px 0px var(--accent-clr, #000);
 }
 
 .sparks {
@@ -282,16 +265,8 @@
   transition: fill 0.3s linear 0.05s;
 }
 
-.like-icon.is-liked .heart {
-  animation: heart-scale 0.3s ease-in 0.1s 1 alternate;
-}
-
-.like-icon.is-liked .sparks {
-  animation: heart-sparks 0.3s ease-in 0.3s 1 alternate;
-}
-
 .like-icon .contour {
-  fill: var(--accent-clr);
+  fill: var(--accent-clr, #000);
   transition: fill 0.1s linear;
 }
 
@@ -313,41 +288,6 @@
   opacity: 0;
 }
 
-.like-icon:hover .core {
-  fill: var(--accent-clr);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--accent-clr);
-  transition: fill 0.3s linear 0.05s;
-}
-
-.like-icon:active .core {
-  fill: var(--heart-fill);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:active .main-body {
-  fill: var(--accent-clr);
-  transition: fill 0.3s linear 0.05s;
-}
-
-.like-icon.is-liked .core {
-  fill: var(--heart-fill);
-  transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--heart-fill);
-  transition: fill 0.3s linear 0.05s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--heart-fill);
-  transition: fill 0.3s linear 0.06s;
-}
-
 .dialog::backdrop {
   opacity: 0.75;
   background-color: #000;
@@ -355,16 +295,18 @@
 
 .dialog {
   padding: 0;
+  border: none;
 }
 
 .dialog__window {
-  background-color: var(--bg-clr);
-  border: 2px solid currentColor;
-  color: var(--accent-clr);
-  padding: 30px;
+  background-color: var(--bg-clr, #fff);
+  border: 2px solid var(--accent-clr);
+  color: var(--accent-clr, #000);
+  padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 30px;
+  max-width: 357px;
 }
 
 .dialog__content {
@@ -376,14 +318,14 @@
 
 .dialog .floppy {
   width: 39px;
+  height: 39px;
 }
 
 .dialog__text {
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font, 'Press Start 2P'), sans-serif;
   line-height: 1.5em;
   text-transform: uppercase;
   font-size: 14px;
-  width: min-content;
 }
 
 .dialog__button {
@@ -393,6 +335,9 @@
 
 .dialog__button .button__text {
   text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (width <= 375px) {
@@ -400,8 +345,17 @@
     --section-width: 100%;
   }
 
+  .header {
+    padding: 118px 0 26px;
+  }
+
   .save__button {
     flex-direction: column;
+  }
+
+  .save__button .floppy {
+    width: 30px;
+    aspect-ratio: 1 / 1;
   }
 
   .title {
@@ -422,36 +376,36 @@
 /*--------*/
 
 /* 1. Ностальгический сепия */
-.nostalgic-sepia {
+.filter-sepia {
   filter: sepia(80%) contrast(110%) brightness(90%);
 }
 
 /* 2. Неоновое сияние */
-.neon-glow {
+.filter-neon {
   filter: brightness(150%) contrast(120%) saturate(200%) hue-rotate(45deg);
 }
 
 /* 3. Акварельный эффект */
-.watercolor {
+.filter-watercolor {
   filter: blur(1px) saturate(150%) contrast(110%);
 }
 
 /* 4. Мистический туман */
-.mystic-fog {
+.filter-fog {
   filter: brightness(90%) contrast(110%) grayscale(50%) hue-rotate(180deg);
 }
 
 /* 5. Винтажная пленка */
-.vintage-film {
+.filter-vintage {
   filter: sepia(30%) contrast(120%) saturate(80%) brightness(105%);
 }
 
 /* 6. Космическое сияние */
-.cosmic-glow {
+.filter-cosmic {
   filter: brightness(120%) contrast(110%) saturate(150%) hue-rotate(30deg);
 }
 
 /* 7. Драматический noir */
-.dramatic-noir {
+.filter-noir {
   filter: grayscale(100%) contrast(150%) brightness(80%);
 }

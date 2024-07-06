@@ -64,27 +64,3 @@
     ),
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --main-font-weight: 400;
-    --card-title-font-weight: 700;
-
-    --bg-clr: #fff;
-    --accent-clr: #000;
-    --label-stroke-clr: var(--bg-clr);
-    --button-clr: #fff;
-    --heart-contour: var(--accent-clr);
-    --bg-image-grad: repeating-linear-gradient(
-        to right,
-        #d3d3d3 0 2px,
-        rgba(0, 0, 0, 0) 2px 4px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #d3d3d3 0 2px,
-        rgba(0, 0, 0, 0) 2px 4px
-      ),
-      linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
-  }
-}
